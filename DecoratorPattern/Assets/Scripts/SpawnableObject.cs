@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnableObject : MonoBehaviour
+public interface ISpawnableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    Vector3 PickPosition();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    void Spawn();
+
+    bool CheckOutOfBounds();
 }
