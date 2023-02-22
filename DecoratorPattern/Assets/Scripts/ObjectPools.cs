@@ -6,8 +6,8 @@ public class ObjectPools : MonoBehaviour
 {
 
     public static ObjectPools SharedInstance;
-    public List<GameObject> pooledCoins = new List<GameObject>();
-    public List<GameObject> pooledPlatforms = new List<GameObject>();
+    public List<Coin> pooledCoins = new List<Coin>();
+    public List<Platform> pooledPlatforms = new List<Platform>();
     public GameObject coin;
     public int amountCoins;
     public GameObject platform;
@@ -21,22 +21,44 @@ public class ObjectPools : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        addToPool(pooledCoins, amountCoins, coin);
-        addToPool(pooledPlatforms, amountPlatforms, platform);
-    }
-
-    void addToPool(List<GameObject> pool, int amtToPool, GameObject poolObject){
         GameObject tmp;
-        for(int i =0; i < amtToPool; i++){
-            tmp = Instantiate(poolObject);
+        for(int i =0; i < amountCoins; i++){
+            tmp = Instantiate(coin);
             tmp.SetActive(false);
-            pool.Add(tmp);
+            pooledCoins.Add(tmp.GetComponent<Coin>());      
         }
+        for(int i =0; i < amountPlatforms; i++){
+            tmp = Instantiate(platform);
+            tmp.SetActive(false);
+            pooledPlatforms.Add(tmp.GetComponent<Platform>());      
+        }
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public Coin GetPooledCoin(){
+        for(int i = 0; i < amountCoins; i++)
+        {
+            if(!pooledCoins[i].gameObject.activeSelf)
+            {
+                return pooledCoins[i];
+            }
+        }
+        Debug.Log("Could not find available coin");
+        return null;
+    } 
+
+    public Platform GetPooledPlatform(){
+        for(int i = 0; i < amountPlatforms; i++)
+        {
+            if(!pooledPlatforms[i].gameObject.activeSelf)
+            {
+                return pooledPlatforms[i];
+            }
+        }
+
+        Debug.Log("Could not find available platform");
+
+        return null;
     }
+
 }

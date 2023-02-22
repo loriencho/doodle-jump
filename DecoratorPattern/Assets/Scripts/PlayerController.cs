@@ -13,6 +13,13 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
     }
+
+    void Start(){
+        Vector2 velocity = rb.velocity;
+        velocity.y = -10f;
+        rb.velocity = velocity;              
+  
+}
     // Update is called once per frame
     void Update() {
         moveX = Input.GetAxis("Horizontal") * moveSpeed;
