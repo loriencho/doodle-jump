@@ -1435,8 +1435,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pooledCoins: []
   pooledPlatforms: []
+  pooledPowerups: []
   coin: {fileID: 511077145}
   amountCoins: 8
+  powerup: {fileID: 479805852}
+  amountPowerups: 8
   platform: {fileID: 843260402}
   amountPlatforms: 10
 --- !u!4 &2074313264
