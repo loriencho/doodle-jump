@@ -1703,11 +1703,14 @@ MonoBehaviour:
   pooledPlatforms: []
   pooledPowerups: []
   coin: {fileID: 511077145}
-  amountCoins: 8
-  powerup: {fileID: 479805852}
-  amountPowerups: 8
+  amountCoins: 15
+  powerups:
+  - {fileID: 479805852}
+  - {fileID: 1091623385}
+  - {fileID: 712602780}
+  amountPowerups: 15
   platform: {fileID: 843260402}
-  amountPlatforms: 10
+  amountPlatforms: 20
 --- !u!4 &2074313264
 Transform:
   m_ObjectHideFlags: 0

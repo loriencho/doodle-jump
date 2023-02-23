@@ -12,7 +12,7 @@ public class ObjectPools : MonoBehaviour
 
     public GameObject coin;
     public int amountCoins;
-    public GameObject powerup;
+    public List<GameObject> powerups;
     public int amountPowerups;
     public GameObject platform;
     public int amountPlatforms;
@@ -37,14 +37,24 @@ public class ObjectPools : MonoBehaviour
             pooledPlatforms.Add(tmp.GetComponent<Platform>());      
         }
         for(int i =0; i < amountPowerups; i++){
-            tmp = Instantiate(powerup);
+            tmp = Instantiate(powerups[i % powerups.Count]);
             tmp.SetActive(false);
             pooledPowerups.Add(tmp.GetComponent<Powerup>());      
         }
 
     }
 
+    private void randomizePowerupsList(){
+        for (int i = 0; i < pooledPowerups.Count; i++) {
+            Powerup temp = pooledPowerups[i];
+            int randomIndex = Random.Range(i, pooledPowerups.Count);
+            pooledPowerups[i] = pooledPowerups[randomIndex];
+            pooledPowerups[randomIndex] = temp;
+        }
+    }
+
     public Powerup GetPooledPowerup(){
+        randomizePowerupsList();
         for(int i = 0; i < amountPowerups; i++)
         {
             if(!pooledPowerups[i].gameObject.activeSelf)

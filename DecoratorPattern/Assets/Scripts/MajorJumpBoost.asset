@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7469c7d9d9397974fb4a50827e885983, type: 3}
   m_Name: MajorJumpBoost
   m_EditorClassIdentifier: 
-  amount: -0.5
+  velocityY: 12

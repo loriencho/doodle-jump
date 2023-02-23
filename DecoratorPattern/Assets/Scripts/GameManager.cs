@@ -32,13 +32,13 @@ public class GameManager : MonoBehaviour
         Vector3 position = new Vector3(mainCamera.transform.position.x, player.transform.position.y, mainCamera.transform.position.z);
         mainCamera.transform.position = position;
 
-        if(player.transform.position.y < (heightRecord -20)){
+        if(player.transform.position.y < (heightRecord -20) && !youWinText.activeSelf){
             gameOverText.SetActive(true);
             if (Input.GetKeyDown("space")){
                 SceneManager.LoadScene("Game");
             }
         }
-        else if (Score >= 50){
+        else if (Score >= 100){
             youWinText.SetActive(true);
             if (Input.GetKeyDown("space")){
                 SceneManager.LoadScene("Game");

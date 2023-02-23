@@ -5,9 +5,12 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Powerups/JumpBoost")]
 public class JumpBoost : PowerupEffect
 {
-    public float amount;
+    public float velocityY;
     public override void Apply(GameObject target)
     {
-        target.GetComponent<Rigidbody2D>().gravityScale += amount;
+        Rigidbody2D rb = target.GetComponent<Rigidbody2D>();
+        Vector2 velocity = rb.velocity;
+        velocity.y = velocityY;
+        rb.velocity = velocity;   
     }
 }
