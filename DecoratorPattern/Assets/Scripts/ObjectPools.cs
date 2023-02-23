@@ -8,8 +8,12 @@ public class ObjectPools : MonoBehaviour
     public static ObjectPools SharedInstance;
     public List<Coin> pooledCoins = new List<Coin>();
     public List<Platform> pooledPlatforms = new List<Platform>();
+    public List<Powerup> pooledPowerups = new List<Powerup>();
+
     public GameObject coin;
     public int amountCoins;
+    public GameObject powerup;
+    public int amountPowerups;
     public GameObject platform;
     public int amountPlatforms;
    
@@ -32,8 +36,25 @@ public class ObjectPools : MonoBehaviour
             tmp.SetActive(false);
             pooledPlatforms.Add(tmp.GetComponent<Platform>());      
         }
+        for(int i =0; i < amountPowerups; i++){
+            tmp = Instantiate(powerup);
+            tmp.SetActive(false);
+            pooledPowerups.Add(tmp.GetComponent<Powerup>());      
+        }
 
     }
+
+    public Powerup GetPooledPowerup(){
+        for(int i = 0; i < amountPowerups; i++)
+        {
+            if(!pooledPowerups[i].gameObject.activeSelf)
+            {
+                return pooledPowerups[i];
+            }
+        }
+        Debug.Log("Could not find available powerup");
+        return null;
+    } 
 
     public Coin GetPooledCoin(){
         for(int i = 0; i < amountCoins; i++)

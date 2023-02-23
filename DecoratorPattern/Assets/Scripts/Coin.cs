@@ -28,7 +28,7 @@ public class Coin : MonoBehaviour, ISpawnableObject
     }
 
     public bool CheckOutOfBounds(){
-        return (GameManager.getCameraHeight() -20f > transform.position.y);
+        return (GameManager.getCameraHeight() -7f > transform.position.y);
     }
 
     public void Spawn(float minimumHeight){

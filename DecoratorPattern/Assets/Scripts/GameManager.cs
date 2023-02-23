@@ -49,6 +49,9 @@ public class GameManager : MonoBehaviour
         for (int i=0; i < Random.Range(0, 2); i++){
             ObjectPools.SharedInstance.GetPooledCoin().Spawn(minimumHeight + i*2.5f);
         }
+        for (int i=0; i < Random.Range(0, 2); i++){
+            ObjectPools.SharedInstance.GetPooledPowerup().Spawn(minimumHeight + i*2.5f);
+        }
         for (int i=0; i < Random.Range(2, 3); i++){
             ObjectPools.SharedInstance.GetPooledPlatform().Spawn(minimumHeight + i*2.5f);
         }
