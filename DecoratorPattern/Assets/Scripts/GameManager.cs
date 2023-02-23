@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static float Score {get ; private set;}
     public GameObject player;
     public static TextMeshProUGUI scoreText;
+    public static float heightRecord = 0f;
     public GameObject gameOverText;
     public GameObject youWinText;
     
@@ -31,7 +32,7 @@ public class GameManager : MonoBehaviour
         Vector3 position = new Vector3(mainCamera.transform.position.x, player.transform.position.y, mainCamera.transform.position.z);
         mainCamera.transform.position = position;
 
-        if(player.transform.position.y < (Score -20)){
+        if(player.transform.position.y < (heightRecord -20)){
             gameOverText.SetActive(true);
             if (Input.GetKeyDown("space")){
                 SceneManager.LoadScene("Game");
@@ -57,15 +58,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public static void increaseScore(){
+    public static void increaseScoreByHeight(){
         float height = mainCamera.transform.position.y;
-        Score = height;
-        scoreText.text = "" + Mathf.Floor(height);        
-
+        if (height > heightRecord){
+            Score += (height - heightRecord);
+        }
+        scoreText.text = "" + Mathf.Floor(Score);        
     }
 
+    public static void increaseScoreByAmt(float amt){
+        Score += amt;
+        scoreText.text = "" + Mathf.Floor(Score);
+
+    }
     public static void OnPlatformRemove(){
-        increaseScore();
+        increaseScoreByHeight();
         SpawnObjects(5.0f);
     }
 

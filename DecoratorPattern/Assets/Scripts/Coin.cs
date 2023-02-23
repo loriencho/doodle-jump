@@ -36,6 +36,12 @@ public class Coin : MonoBehaviour, ISpawnableObject
         transform.position = PickPosition(minimumHeight);
     }
 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        GameManager.increaseScoreByAmt(5.0f);
+        Despawn();
+    }
+
     public void Despawn(){
         gameObject.SetActive(false);
     }
