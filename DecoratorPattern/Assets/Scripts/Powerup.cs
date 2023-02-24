@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class Powerup : MonoBehaviour
 {
-    public PowerupEffect powerupEffect;
+    public Player player;
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (gameObject.name.Equals("SpeedBoost"))
+            new SpeedBoost(player).Apply(collision.gameObject);
+        else if (gameObject.name.Equals("JumpBoost"))
+            new JumpBoost(player).Apply(collision.gameObject);
+        else if (gameObject.name.Equals("NegativeScore"))
+            new ScoreBoost(player).Apply(collision.gameObject);
+
         Despawn();
-        powerupEffect.Apply(collision.gameObject);
+
     }
 
     void Update()

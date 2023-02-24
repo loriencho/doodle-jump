@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Powerups/JumpBoost")]
-public class JumpBoost : PowerupEffect
+public class JumpBoost : PowerupEffectDecorator
 {
-    public float velocityY;
+    public float velocityY = 10f;
+
+    public JumpBoost(IPoweredupPlayer player) : base(player){}
+
     public override void Apply(GameObject target)
     {
         Rigidbody2D rb = target.GetComponent<Rigidbody2D>();
