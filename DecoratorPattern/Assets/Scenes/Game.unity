@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c446240ec986d86429f5ddcff63895c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerupEffect: {fileID: 11400000, guid: fc400e77bd93d284d8a2cf16c7c57ea7, type: 2}
+  player: {fileID: 0}
 --- !u!61 &479805854
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -519,7 +519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c446240ec986d86429f5ddcff63895c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerupEffect: {fileID: 11400000, guid: 453a6c5b79fe9684f8f0fc6d3e11aa3e, type: 2}
+  player: {fileID: 0}
 --- !u!61 &712602782
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1249,7 +1249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c446240ec986d86429f5ddcff63895c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerupEffect: {fileID: 11400000, guid: 4035dad69f26a97459e430c942d74a27, type: 2}
+  player: {fileID: 0}
 --- !u!61 &1091623387
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1585,6 +1585,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   rb: {fileID: 1823380218}
+--- !u!114 &1823380222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823380214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39b3531ff7079e14d88599b40fc1f50a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1905586808
 GameObject:
   m_ObjectHideFlags: 0
